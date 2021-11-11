@@ -1,0 +1,50 @@
+Linux commands
+1. $ whoami  
+2. $ history
+3. $ !1  
+4. $ $0  - this show the location
+5. $ apt list - list all packages from package database
+6. $ apt update- update the database
+7.  /dev - devices
+8.  / etc - editable text configuration 
+9.  /lib - library files
+10. / proc - this is process
+11. /dev -devices 
+12. $ pwd - print working directly 
+13. $ cd ../..
+14. cmd+ k -clear the 
+15. $ touch -  create file
+16. $ rm - remove
+17. $ rm -r   - remove file directory
+18. $ less /etc/adduser.conf.  …. $ more , $ cat , $ head $ tail , $nano to write
+19. $ cat a.txt b.txt > c.txt 
+20. $ echo Mohan > write.file
+21. $ ls -l /etc > storeInFile.txt
+22. $ grep  hello hello.txt — search hello on hello.txt files
+23. $ grep -r -I  folder/
+24. $ find , $ find -type -d, $ find -type f -name “f*” — after type d is directory, f is files,  you can use name or iname or case-sensitive
+25. $ find / -type f -name “*.py”  — finding all of the python files .
+26. $ mkdir test ; cd test; echo done; — running multiple commands
+27. $ mkdir test && cd test && echo done — running only all of them are worked .
+28. $ mkdir test || echo “directory exists “ ;
+29. $ ls /bin | less — just transferring the commend into another commend
+30. $ echo hello \   — type more commands in new line  with “ \ “ 
+31. $ printenv  , printenv PATH ,  echo $PATH 
+32. $ export VAR=mohan  — putting new variables on env just temporarily 
+33. $ cd ~  — go to home 
+34. $ echo DB_USER=newSetting >> .bashrc    ( stored env for permanent ) 
+35. $ source .bashrc ( please load after adding your new env var )
+36. $ ps —list all process
+37. $ sleep 30 ( sleep 30 sec ) , $ sleep 3 & ( sleep background )
+38. $ kill 32
+39. $ useradd (adding user) , $ usermod ( modifying ) , $ userdel (deleting )
+40. $ cat /etc/psswd . ( seeing user info )  $ cat /etc/shadow ( seeing password info ) 
+41. $ grouped developers ( adding groups, having same permission for the developer ), cat /etc/group — to view
+42. $ usermod -G developers John 
+43. $ cat /etc/passwd | grep John  ( John will have one primary group and more 4 secondary group ) 
+44. $ chmod have 3 types of permissions ( drwe  rwe rwe ) ( directory user group other )
+45. $ chmod  ugo +x+w-r
+46. $ ./file.bash  ( running file)
+47. $ groupadd , $ groupmod , $ grouped 
+
+

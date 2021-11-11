@@ -1,0 +1,102 @@
+Docker command 
+
+Container get a file system from an image, but each container is totally isolated . 
+
+Dockerfile 
+
+ 
+FROM node:14.14.0-alpine3.11 
+#hub.docker.com
+RUN addgroup app && adduser -S -G app app 
+USER app 
+WORKDIR /app
+COPY package*.json .
+#if there is no changes on package.json the docker isn't gonna execute, no more npm install -- is called "caching"    
+RUN npm install      
+# add .dockerignore file to ignore it  
+# thats why stable instructions should be on the top, frquently change are on the bottom 
+RUN apk install python                
+# apt-get install  if it is alpine OS
+COPY . .
+# RUN apk install python
+ENV API_URL=http://api.myapi.com 
+EXPOSE 3000
+# shell form 
+# CMD npm start
+# Exec form 
+CMD ["npm", "start"]
+ENTRYPOINT [ "npm" ,"start" ]                       # both CMD and ENTRYPOINT are same but CMD can overwite during run time
+
+#ADD http://../file.json.             	            # Add and copy are same , but add have more features like adding url and unzip  
+
+
+$ docker pull  							            # pulling from docker-hub
+$ docker build -t react-app .  			            # building docker images -t is tag/title 
+$ docker image ls 						            # list all of the docker images 
+$ docker run -it react-app                          # run the container from image interactively
+$ docker run -it react-app sh			            # call sh from a node docker image 
+$ docker history react-app 				            # reading the react-image layers history . 
+$ docker image prune 					            # remove some broken images 
+$ docker ps -a							            # get stopped container
+$ docker container prune           		            # delete stopped container 
+$ docker rm ubuntu react-app  		                # remove 2 images  
+$ docker image tag react-app:latest react-app:1.    # change the tag
+$ docker build -t react-app:2 			            # giving a react-app version . 
+$ docker image remove react-app:1                   # remove tag 
+$ docker image 32fe2 react-app:latest               # tagging latest image into latest image
+$ docker image save -o react-app.tar react-app:3    # saving image with .tar file 
+$ docker image load -i  react-app.tar               # loaded 
+$ docker run —name “c1” react-app                   # run with different name , 2 containers 
+$ docker logs -t -tail 5  -f  665nr4rsc             # follow the log in terminal .
+$ docker ps 
+$ docker run -d -p 80:3000  —name c1 react-app
+$ docker run -d -p 3000:3000 —name “c1” react-app   # -d running background 
+$ docker ps                                         # check running container 
+$ docker exec -it c1 sh                             # running shell with running container
+$ docker stop c1 
+$ docker start c1                                   # docker run start new container .. start will start a stop container 
+$ docker container rm c1  , $ docker rm -f c1       # forclely remove the container 
+$ docker ps -a | grep c1                            # -a broken container also.
+
+Using volume for storing app data 
+
+$ docker volume create app-data
+$ docker volume inspect app-data
+$ docker run -d -p 5000:3000 —name “c1” -v app-data:/app/data react-app
+$ docker cp mohan.txt cp:/app                       # copy mohan.txt into the app , cp is the container id
+
+
+Mapping with project to container .
+
+$ docker run -d -p 5001:3000 -v $(pwd):/app  -v app-data:/app/data  react-app
+$ docker container rm  -f $( docker container ls -aq ) 
+$ docker image  rm -f $( docker images -q ) 
+
+
+Using docker-compose for all
+
+$ docker-compose build                              # build all of the images  fronted , backend and db 
+$ docker-compose build —no-cache
+$ docker-composer up  -d                            # running the docker images  into container 
+$ docker-compose ps 
+$ docker network ls 
+$ docker exec -it 3df (container id ) -u root sh    # and ping api .. 
+$ docker-compose logs -f 
+$ docker logs 837k -f 
+
+
+ 
+
+
+
+
+ 
+ 
+ 
+
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+[
+  {
+    "name": "plugin-twilio-flex",
+    "version": "0.0.0",
+    "class": "TwilioFlexPlugin",
+    "requires": [
+      {
+        "@twilio/flex-ui": "^1"
+      }
+    ],
+    "src": "http://localhost:3000/plugin-twilio-flex.js"
+  }
+]
