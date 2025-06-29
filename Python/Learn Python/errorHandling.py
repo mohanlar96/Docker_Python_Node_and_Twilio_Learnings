@@ -1,5 +1,5 @@
 try:
-    age= int(input('Age: ' ))
+    age= int(input('Age: '))
     print( age)
     age/2
 except ValueError:
