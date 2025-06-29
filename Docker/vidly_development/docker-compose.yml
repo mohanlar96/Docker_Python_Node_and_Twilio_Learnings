@@ -1,4 +1,3 @@
-version: "3.8"
 services: 
     web:   
         build: ./frontend
@@ -7,7 +6,7 @@ services:
         volumes: 
             - ./frontend:/app
     webtests:   
-        image: vidly_web
+        build: ./frontend
         volumes: 
             - ./frontend:/app
         command: npm test
