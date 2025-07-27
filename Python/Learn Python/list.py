@@ -1,6 +1,6 @@
 names= ['JOhn','Bob','Mosh', 'Sarah', 'Mohan '];
 
-print(names[2:]) # select the range of the array .
+print(names[2:4]) # select the range of the array .
 
 number=[1,3,5,7,3,67,2]
 
